@@ -1,4 +1,5 @@
 import 'package:adstacks/models/page_provider.dart';
+import 'package:adstacks/pages/calender_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -63,17 +64,14 @@ class MyHomePage extends StatelessWidget {
   ),
   backgroundColor: Colors.white,
   elevation: 0,
-  actions: [
+  actions:  [
     IconButton(
             icon: const Icon(Icons.calendar_month),
             onPressed: () {
-              // Handle Calender action
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text('Calender button pressed'),
-                  duration: Duration(seconds: 2),
-                ),
-              );
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const BirthdayAnniversaryPage()),
+    );
             },
           ),
     IconButton(
@@ -154,17 +152,14 @@ class MyHomePage extends StatelessWidget {
                   Navigator.pop(context);
                 },
               ),
-              ListTile(
-                leading: const Icon(Icons.people),
-                title: const Text('Employees'),
-                  onTap: () {
-                  // Navigate to EmployeesPage
-                     Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(builder: (context) => const EmployeesPage()),
-                     );
-                    },
-                ),
+              // ListTile(
+              //   leading: const Icon(Icons.people),
+              //   title: const Text('Employees'),
+              //     onTap: () {
+              //     context.read<PageProvider>().setCurrentPage('Employee');
+              //     Navigator.pop(context);
+              //       },
+              //   ),
               ListTile(
                 leading: const Icon(Icons.check_circle_outline),
                 title: const Text('Attendance'),
@@ -226,8 +221,8 @@ class MyHomePage extends StatelessWidget {
       body: Consumer<PageProvider>(
         builder: (context, pageProvider, child) {
           switch (pageProvider.currentPage) {
-            case 'Employees':
-              return const EmployeesPage();
+            // case 'Employees':
+            //   return const EmployeesPage();
             case 'Attendance':
               return const AttendancePage();
             case 'Summary':
@@ -262,7 +257,7 @@ class HomeContent extends StatelessWidget {
               padding: const EdgeInsets.all(16.0),
               child: Container(
                 decoration: BoxDecoration(
-                color: Colors.deepPurple[900], // Background color similar to the image
+                color: Colors.white70, // Background color similar to the image
                 borderRadius: BorderRadius.circular(30.0), // Rounded corners
               ),
               child: Padding(
@@ -271,14 +266,14 @@ class HomeContent extends StatelessWidget {
                   decoration: InputDecoration(
                     hintText: 'Search...',
                     hintStyle: TextStyle(
-                      color: Colors.grey[300], // Placeholder color
+                      color: Colors.black87, // Placeholder color
                     ),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30.0),
                       borderSide: const BorderSide(),
                     ),
                     suffixIcon: Icon(Icons.search,
-                    color: Colors.grey[300],),
+                    color: Colors.grey,),
                   ),
                 ),
               ),

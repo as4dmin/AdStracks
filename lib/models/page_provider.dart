@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class PageProvider with ChangeNotifier {
+class PageProvider extends ChangeNotifier {
   String _currentPage = 'Home';
 
   String get currentPage => _currentPage;

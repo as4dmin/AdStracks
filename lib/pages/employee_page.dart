@@ -1,4 +1,3 @@
-// Employees Page Widget
 import 'package:flutter/material.dart';
 
 class EmployeesPage extends StatelessWidget {
@@ -6,6 +5,9 @@ class EmployeesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: const Text('Employees Page'));
+    return Center(
+      child: const Text('Employees Page'),
+    );
   }
 }
+
